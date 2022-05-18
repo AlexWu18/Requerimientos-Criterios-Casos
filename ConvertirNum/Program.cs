@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 
+void Main() { }
 public static class NumeroArab
 {
     public static Dictionary<char, int> RomanANumber;    //Dictionary that have values in Roman
