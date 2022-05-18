@@ -23,7 +23,7 @@ public static class NumeroArab
         };
     }
 
-    public static string To(int numero)
+    public static string To(int numero) //Search and evaluate the Roman
     {
         var roman = new StringBuilder();
         foreach(var Cosa in NumberARoman)
@@ -34,8 +34,37 @@ public static class NumeroArab
                 numero -= Cosa.Key;
             }
         }
-
+        return roman.ToString();
     }
 
+    public static int From( string roman)
+    {
+        // declare Variable
+        int total = 0;
+        int Actual, Anterior = 0;
+        char ActualRoman, AnteriorRoman = '\0';
+
+        for (int i = 0; i < roman.Length; i++) // "For" to locate the char in any string
+        {
+            ActualRoman = roman[i];
+            Anterior = AnteriorRoman != '\0' ? RomanANumber[AnteriorRoman] :'\0';
+            Actual = RomanANumber[ActualRoman];
+
+            if (Anterior != 0 && Actual > Anterior)   // Anterior can't be equal to '0' and Actual greater than Anterior
+            {
+                total = total - (2 * Anterior) + Actual;
+            }
+            else 
+            {
+                total += Actual;
+            }
+
+            AnteriorRoman = ActualRoman;
+
+        }
+        return total;
+    
+    }
+ 
 
 }
