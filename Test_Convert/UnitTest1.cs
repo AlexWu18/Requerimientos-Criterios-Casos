@@ -3,10 +3,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Test_Convert
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTest1 // those test compare the values in Roman and arab.
     {
-        [TestMethod]
-        public void RomanTest_1()
+        [TestMethod]  
+        public void RomanTest_1() 
         {
             Assert.AreEqual("I", NumeroArab.To(1));
         }
@@ -47,5 +47,10 @@ namespace Test_Convert
             Assert.AreEqual("XC", NumeroArab.To(90));
         }
 
+        [TestMethod]
+        public void RomanTest_3_III()
+        {
+            Assert.AreEqual("MMCMLVIII", NumeroArab.To(2958));
+        }
     }
 }
